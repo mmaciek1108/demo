@@ -5,6 +5,8 @@ VisualStudioVersion = 17.5.002.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "feedback360", "feedback360.csproj", "{7ADA2AC7-265A-43DA-9281-6DB61608C5A3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Feedback360.Tests", "..\Feedback360.Tests\Feedback360.Tests.csproj", "{01210076-222D-43DE-956B-F87B049F563E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,14 @@ Global
 		{7ADA2AC7-265A-43DA-9281-6DB61608C5A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7ADA2AC7-265A-43DA-9281-6DB61608C5A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7ADA2AC7-265A-43DA-9281-6DB61608C5A3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC87BF66-3ED0-4A2B-9016-2F68750E366A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC87BF66-3ED0-4A2B-9016-2F68750E366A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC87BF66-3ED0-4A2B-9016-2F68750E366A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC87BF66-3ED0-4A2B-9016-2F68750E366A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01210076-222D-43DE-956B-F87B049F563E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01210076-222D-43DE-956B-F87B049F563E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01210076-222D-43DE-956B-F87B049F563E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01210076-222D-43DE-956B-F87B049F563E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

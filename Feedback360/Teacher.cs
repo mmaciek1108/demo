@@ -4,6 +4,7 @@ namespace feedback360
 {
     public class Teacher : TeacherBase
     {
+        public override event GradeAddedDeledate GradeAdded;
         private string FullFileName;
 
         private const string fileName = ".txt"; //w sumie to chyba nie potrzebe 
@@ -19,6 +20,10 @@ namespace feedback360
                 using (var writer = File.AppendText(FullFileName))
                 {
                     writer.WriteLine(grade);
+                }
+                if (GradeAdded is not null)
+                {
+                    GradeAdded(this, new EventArgs());
                 }
             }
             else

@@ -3,6 +3,8 @@ namespace feedback360
 {
     public abstract class TeacherBase : ITeacher
     {
+        public delegate void GradeAddedDeledate(object sender, EventArgs args);
+        public abstract event GradeAddedDeledate GradeAdded;
 
         public string Name { get; private set; }
         public string Surname { get; private set; }

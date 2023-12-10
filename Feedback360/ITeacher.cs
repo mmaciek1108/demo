@@ -1,3 +1,4 @@
+using static feedback360.TeacherBase;
 
 namespace feedback360
 {
@@ -9,6 +10,7 @@ namespace feedback360
         void AddGrade(char grade);
         void AddGrade(string grade);
         void AddGrade(double grade);
+        event GradeAddedDeledate GradeAdded;
 
         Statistics GetStatistics();
     }
