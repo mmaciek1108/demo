@@ -5,19 +5,18 @@ namespace feedback360
     public class Teacher : TeacherBase
     {
         public override event GradeAddedDeledate GradeAdded;
-        private string FullFileName;
+        private string fullFileName;
 
-        private const string fileName = ".txt"; //w sumie to chyba nie potrzebe 
         public Teacher(string name, string surname) : base(name, surname)
         {
-            FullFileName = $"{name}.{surname}{fileName}";
+            fullFileName = $"{name}.{surname}.txt";
         }
 
         public override void AddGrade(float grade)
         {
             if (grade >= 1 && grade <= 6)
             {
-                using (var writer = File.AppendText(FullFileName))
+                using (var writer = File.AppendText(fullFileName))
                 {
                     writer.WriteLine(grade);
                 }
@@ -32,57 +31,6 @@ namespace feedback360
             }
         }
 
-
-        public override void AddGrade(char grade)
-        {
-            switch (grade)
-            {
-                case 'A':
-                case 'a':
-                    AddGrade(6);
-                    break;
-                case 'B':
-                case 'b':
-                    AddGrade(5);
-                    break;
-                case 'C':
-                case 'c':
-                    AddGrade(4);
-                    break;
-                case 'D':
-                case 'd':
-                    AddGrade(3);
-                    break;
-                case 'E':
-                case 'e':
-                    AddGrade(2);
-                    break;
-                default:
-                    throw new Exception("nie właściwe wprowadzony znak");
-            }
-        }
-
-        public override void AddGrade(string grade)
-        {
-            if (float.TryParse(grade, out float result))
-            {
-                AddGrade(result);
-            }
-            else if (char.TryParse(grade, out char resultChar))
-            {
-                AddGrade(resultChar);
-            }
-            else
-            {
-                throw new Exception($"Wpisany znak: {grade} - nie da się przekonwertować na liczbę");
-            }
-        }
-
-        public override void AddGrade(double grade)
-        {
-            float gradeFloat = (float)grade;
-            AddGrade(gradeFloat);
-        }
         public override Statistics GetStatistics()
         {
             var gradesListFromFile = this.ReadFromFile();
@@ -93,9 +41,9 @@ namespace feedback360
         {
             var grades = new List<float>();
 
-            if (File.Exists(FullFileName))
+            if (File.Exists(fullFileName))
             {
-                using (var reader = File.OpenText(FullFileName))
+                using (var reader = File.OpenText(fullFileName))
                 {
                     var line = reader.ReadLine();
                     while (line is not null)

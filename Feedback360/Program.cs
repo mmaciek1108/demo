@@ -1,4 +1,5 @@
 ﻿
+using System.Runtime.CompilerServices;
 using feedback360;
 
 bool status = true;
@@ -9,7 +10,7 @@ Console.WriteLine("------------------------------------------------");
 
 while (status)
 {
-    Console.WriteLine("Wybierz odpowiedni numer i naciśnij Enter:");
+    Console.WriteLine("\nWybierz odpowiedni numer i naciśnij Enter:");
     Console.WriteLine("1 - lista wprowadzonych ocen");
     Console.WriteLine("2 - wprowdz ocene nowego wykładowcy");
     Console.WriteLine("q - koniec");
@@ -35,8 +36,8 @@ while (status)
 
 static void AddGradesToTxtFile()
 {
-    string folderPath = Directory.GetCurrentDirectory(); // Pobiera ścieżkę bieżącego folderu
-    List<string> fileTxtNames = new List<string>(); // Lista do przechowywania nazw polików txt
+    string folderPath = Directory.GetCurrentDirectory();
+    List<string> fileTxtNames = new List<string>();
 
     string[] txtFiles = Directory.GetFiles(folderPath, "*.txt");
     var i = 1;
@@ -90,12 +91,7 @@ static void AddGradesToTxtFile()
             }
         }
 
-        var statistics = teacher.GetStatistics();
-        Console.WriteLine($"Ilośc ocen: {statistics.Count}");
-        Console.WriteLine($"Averange: {statistics.Average:N2}");
-        Console.WriteLine($"Min: {statistics.Min}");
-        Console.WriteLine($"Max: {statistics.Max}");
-        Console.WriteLine($"AverangeLetter: {statistics.AverageLetter}");
+        ShowStatistic(teacher);
     }
 
     else
@@ -141,12 +137,17 @@ static bool AddGradesToNewFile()
         }
     }
 
+    ShowStatistic(teacher);
+
+    return false;
+}
+
+static void ShowStatistic(Teacher teacher)
+{
     var statistics = teacher.GetStatistics();
     Console.WriteLine($"Ilośc ocen: {statistics.Count}");
     Console.WriteLine($"Averange: {statistics.Average:N2}");
     Console.WriteLine($"Min: {statistics.Min}");
     Console.WriteLine($"Max: {statistics.Max}");
     Console.WriteLine($"AverangeLetter: {statistics.AverageLetter}");
-    return false;
 }
-

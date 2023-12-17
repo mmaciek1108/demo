@@ -17,11 +17,57 @@ namespace feedback360
 
         public abstract void AddGrade(float grade);
 
-        public abstract void AddGrade(char grade);
+        public void AddGrade(char grade)
+        {
+            switch (grade)
+            {
+                case 'A':
+                case 'a':
+                    AddGrade(6);
+                    break;
+                case 'B':
+                case 'b':
+                    AddGrade(5);
+                    break;
+                case 'C':
+                case 'c':
+                    AddGrade(4);
+                    break;
+                case 'D':
+                case 'd':
+                    AddGrade(3);
+                    break;
+                case 'E':
+                case 'e':
+                    AddGrade(2);
+                    break;
+                default:
+                    throw new Exception("nie właściwe wprowadzony znak");
+            }
+        }
 
-        public abstract void AddGrade(string grade);
 
-        public abstract void AddGrade(double grade);
+        public void AddGrade(string grade)
+        {
+            if (float.TryParse(grade, out float result))
+            {
+                AddGrade(result);
+            }
+            else if (char.TryParse(grade, out char resultChar))
+            {
+                AddGrade(resultChar);
+            }
+            else
+            {
+                throw new Exception($"Wpisany znak: {grade} - nie da się przekonwertować na liczbę");
+            }
+        }
+
+        public void AddGrade(double grade)
+        {
+            float gradeFloat = (float)grade;
+            AddGrade(gradeFloat);
+        }
 
         public abstract Statistics GetStatistics();
     }
