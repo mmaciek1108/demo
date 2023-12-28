@@ -29,7 +29,7 @@ public class Tests
     public void WhenStatisticsCalled_ShouldReturnMin()
     {
         //arrange
-        var user = new Teacher("Klara", "Szybka");
+        var user = new Teacher("Andrzej", "Szkielko");
         user.AddGrade(6);
         user.AddGrade(2);
         user.AddGrade(3);
@@ -69,7 +69,7 @@ public class Tests
     public void WhenStatisticsCalled_ShouldReturnAveregeLetter()
     {
         //arrange
-        var user = new Teacher("Klara", "Szybka");
+        var user = new Teacher("Zosia", "Lekka");
         user.AddGrade(3);
         user.AddGrade(2);
         user.AddGrade(1);
@@ -82,6 +82,6 @@ public class Tests
 
 
         //assert
-        Assert.AreEqual('C', ave);
+        Assert.That(ave, Is.EqualTo('D'));
     }
 }
